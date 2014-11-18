@@ -1,0 +1,22 @@
+tambahan aplikasi ssp
+tgl : 16 Nop 2014
+1. tbl_pejabat tambah status
+2. tbl_login tambah loginid supaya bisa user delete
+3. index.php line 38 : tambahan script fullscreen
+
+
+
+
+
+
+
+
+----------------------------------------------------------------------------------------------------------------------------------------
+# tambahan aplikasi ssp 
+tgl : 17 nop 2014
+1. tambah jam berjalan di dashboard home ----------------------- oke
+2. tambah format ribuan pada nilai
+3. tambah footer disetiap halaman toyyibe digital agency ----------------------- oke
+4. header posisinya disamakan 
+5. selesaikan proses transaksi
+6. print euy kapan uji cobanya 

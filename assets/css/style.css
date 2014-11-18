@@ -1,0 +1,126 @@
+body{
+	background-image:url('../img/body1.jpg');	
+	background-size:100%;
+	-- background-position: 0px 0px 0px 0px;
+	background-attachment: fixed;
+}
+.canvas {
+	padding:10px;
+}
+.btn {
+	 box-shadow: 2px 2px 0px #000;
+}
+
+.cleaner_h0 { clear: both; width:100%; height: 0px; }
+.cleaner_h1 { clear: both; width:100%; height: 1px; }
+.cleaner_h5 { clear: both; width:100%; height: 5px; }
+.cleaner_h10 { clear: both; width:100%; height: 10px; }
+.cleaner_h20 { clear: both; width:100%; height: 20px; }
+.cleaner_h30 { clear: both; width:100%; height: 30px; }
+.cleaner_h40 { clear: both; width:100%; height: 40px; }
+.cleaner_h50 { clear: both; width:100%; height: 50px; }
+.cleaner_h60 { clear: both; width:100%; height: 60px; }
+
+
+.nav_brand{
+	font-size : 20px;
+	font-family : Verdana, Geneva, sans-serif;
+	color : orange;
+}
+
+.navbar1{
+	border-bottom : 2px solid #C89F5A;
+	--border-bottom : 2px solid orange;
+	box-shadow: 2px 2px 2px 2px #999;
+}
+
+.page-content {
+    --margin-left: 225px;
+    margin-top: 0px;
+    min-height: 550px;
+    padding: 25px 20px 20px;
+}
+
+.kolom1, .kolom2 {
+	padding:10px;
+}	
+
+table.date {
+	border: 1px solid #fff;
+	border-collapse: collapse;
+	--font-family: Georgia, Times, serif;
+}
+.date th {
+	border: 1px solid #fff;
+	text-transform: uppercase;
+	padding: 10px;
+	background-color: #ccc;
+	color: red;
+}
+.date td {
+	border: 1px solid #fff;
+	height: 3em;
+	width: 3.8em;
+	padding: 0px;
+	vertical-align: top;
+	font-size: 30px;
+	color : #fff;
+	background-color:#5cb85c;
+	
+}
+.date td a {
+	height:100%;
+	width:100%;
+	background-color:#d9534f;
+	display:block;
+	color:white;
+	opacity:0.85;
+}
+.date td a:hover {
+	text-decoration:none;
+	background-color:#d9534f;
+	opacity:1;
+}
+
+
+.pagingpage-nomor{
+background-color: #fff;
+text-align:center;
+width:20px;
+padding: 3px;
+border: 1px solid #CCCCCC;
+float:left;
+margin:1px;
+}
+
+.pagingpage-nomor a{
+text-decoration:none;
+}
+
+.pagingpage-nomor a:hover{
+text-decoration:underline;
+}
+
+.pagingpage{
+background-color: #fff;
+padding: 3px;
+border: 1px solid #CCCCCC;
+float:left;
+margin:1px;
+}
+
+.pagingpage a{
+text-decoration:none;
+}
+
+.pagingpage a:hover{
+text-decoration:underline;
+}
+
+.thumbnail{
+	height: 400px;
+	padding : 20px;
+	margin : 20px;
+}
+
+

@@ -1,0 +1,43 @@
+		<script>
+			window.onunload = refreshParent;
+			function refreshParent() {
+				window.opener.location.reload();
+				
+			}
+		</script>
+		
+		<table border=1 width="480" class="table table-condensed">
+			<tr class="info">
+				<td>NPWP</td>
+				<td>Nama</td>
+				<td>*</td>
+			</tr>
+			<?php if($browsenpwp->num_rows()==0): ?>
+			<tr>
+				<td colspan=3>Belum ada data</td>
+			</tr>
+			<?php else: ?>
+			<?php foreach($browsenpwp->result() as $row): ?>
+			<tr>
+				<td><?=$row->npwp?></td>
+				<td><?=$row->nama?></td>
+				<td><a data-id="<?=$row->wpid?>" class="btn btn-sm btn-info pilih">pilih</a></td>
+			</tr>
+			<?php endforeach; ?>
+			<?php endif; ?>
+		</table>
+		<link href="<?=base_url();?>assets/bootstrap311/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+		<script src="<?=base_url();?>assets/jquery.1.11.js" type="text/javascript"></script>
+		<script>
+			$('.pilih').click(function(){
+				var pilihan = $(this).data("id");
+				$.ajax({
+				type: "POST",
+				url: "<?=base_url()?>index.php/ssp_post/pilih_npwp",
+				data: { pilihan: pilihan }
+				})
+				.done(function( msg ) {
+					window.close();
+				});
+			});
+		</script>
