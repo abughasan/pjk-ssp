@@ -31,7 +31,7 @@
 	
 	<!-- jQuery (jQuery plugins) -->
 	<script src="<?php echo $this->config->item('jqui_path'); ?>jquery-ui.min.js"></script>
-    <!--<script src="<?php echo $this->config->item('datepicker_path'); ?>js/bootstrap-datepicker.js"></script>-->
+    <script src="<?php echo $this->config->item('datepicker_path'); ?>js/bootstrap-datepicker.js"></script>
     <script src="<?php echo $this->config->item('jqgrid_path'); ?>js/i18n/grid.locale-en.js"></script>
     <script src="<?php echo $this->config->item('jqgrid_path'); ?>js/jquery.jqGrid.min.js"></script>
     <script src="<?php echo $this->config->item('bootstrap_path'); ?>dist/js/bootstrap.min.js"></script>

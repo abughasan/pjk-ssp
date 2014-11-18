@@ -5,3 +5,7 @@ ERROR - 2014-11-19 04:43:54 --> Severity: Notice  --> mysql_pconnect(): send of 
 ERROR - 2014-11-19 04:43:55 --> Query error: Table 'dbssp.ci_sessions' doesn't exist
 ERROR - 2014-11-19 04:46:20 --> Severity: Notice  --> Undefined property: stdClass::$loginid C:\xampp\htdocs\bangkame\pajak\application\controllers\app.php 48
 ERROR - 2014-11-19 04:46:20 --> Severity: Notice  --> Undefined property: stdClass::$stts C:\xampp\htdocs\bangkame\pajak\application\controllers\app.php 52
+ERROR - 2014-11-19 05:23:22 --> Severity: Notice  --> Undefined offset: 6 C:\xampp\htdocs\bangkame\pajak\application\controllers\pejabat.php 34
+ERROR - 2014-11-19 05:23:22 --> Severity: Notice  --> Undefined offset: 6 C:\xampp\htdocs\bangkame\pajak\application\controllers\pejabat.php 42
+ERROR - 2014-11-19 05:23:25 --> Severity: Notice  --> Undefined offset: 6 C:\xampp\htdocs\bangkame\pajak\application\controllers\pejabat.php 34
+ERROR - 2014-11-19 05:23:25 --> Severity: Notice  --> Undefined offset: 6 C:\xampp\htdocs\bangkame\pajak\application\controllers\pejabat.php 42

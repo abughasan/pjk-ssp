@@ -86,9 +86,30 @@
 			</select>
 		</div>
     </div>
+
+	<div class="form-group">
+		<label  class="col-md-3 control-label" for='tahun'>Bulan <span class="required">*</span></label>
+		<div class="col-md-2">
+			<input class="form-control" id="bulan" type="text" name="bulan" maxlength="4" value="<?php echo set_value('bulan'); ?>" data-provide="datepicker" data-date-autoclose="true" data-date="date(yyyy-mm-dd)" data-date-format="mm" data-date-min-view-mode="months" />
+			<?php echo form_error('tahun'); ?>
+		</div>
+		<label  class="col-md-1 control-label" for='tahun'>Tahun <span class="required">*</span></label>
+		<div class="col-md-2">
+			<input class="form-control" id="tahun" type="text" name="tahun" maxlength="4" value="<?php echo set_value('tahun'); ?>" data-provide="datepicker" data-date-autoclose="true" data-date="date(yyyy-mm-dd)" data-date-format="yyyy" data-date-min-view-mode="years" />
+			<?php echo form_error('tahun'); ?>
+		</div>
+    </div>
+
+	<div class="form-group">
+		<label  class="col-md-3 control-label" for='tahun'>Tambahan uraian <span class="required"></span></label>
+		<div class="col-md-9">
+			<input class="form-control" id="uraian" type="text" name="uraian" maxlength="4" value="<?php echo set_value('uraian'); ?>"  />
+			<?php echo form_error('uraian'); ?>
+		</div>
+    </div>
 	
     <div class="form-group">
-	<label  class="col-md-3 control-label" for='kenapajak'>Kena Pajak <span class="required">*</span></label>
+	<label  class="col-md-3 control-label" for='kenapajak'>Kena Pajak <span class="required"></span></label>
 		<div class="col-md-9">
 			<div class='controls' id="keterangan_pajak"></div>
 		</div>	
