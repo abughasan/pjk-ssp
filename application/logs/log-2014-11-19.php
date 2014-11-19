@@ -9,3 +9,5 @@ ERROR - 2014-11-19 05:23:22 --> Severity: Notice  --> Undefined offset: 6 C:\xam
 ERROR - 2014-11-19 05:23:22 --> Severity: Notice  --> Undefined offset: 6 C:\xampp\htdocs\bangkame\pajak\application\controllers\pejabat.php 42
 ERROR - 2014-11-19 05:23:25 --> Severity: Notice  --> Undefined offset: 6 C:\xampp\htdocs\bangkame\pajak\application\controllers\pejabat.php 34
 ERROR - 2014-11-19 05:23:25 --> Severity: Notice  --> Undefined offset: 6 C:\xampp\htdocs\bangkame\pajak\application\controllers\pejabat.php 42
+ERROR - 2014-11-19 06:37:24 --> Severity: Notice  --> Undefined variable: pemungut C:\xampp\htdocs\bangkame\pajak\application\views\interface\konten_form_ssp3.php 50
+ERROR - 2014-11-19 06:37:24 --> Severity: Warning  --> Invalid argument supplied for foreach() C:\xampp\htdocs\bangkame\pajak\application\views\interface\konten_form_ssp3.php 50

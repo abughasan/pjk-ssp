@@ -15,6 +15,9 @@ class Ssp_auto extends CI_Controller {
 		$game['kodeakun'] = $this->app_model->manualQuery('SELECT kd_akun FROM tbl_jp')->result();
 		$game['kodejenis'] = $this->app_model->manualQuery('SELECT DISTINCT(kd_jenis) FROM tbl_jp')->result();
 		$game['belanja'] = $this->app_model->getAllData('tbl_belanja')->result();
+		$game['pemungut'] = $this->app_model->getAllData('tbl_pp')->result();
+		
+		
 		$game['template'] = 'new_template';											#--- pilihan template. anda bisa pilih twocolumn / onecolumn
 		$game['komponen_top'] = array('navbar','forcelogin');						#--- Tambahkan html komponen di bagian paling atas halaman / sebelum template
 		$game['komponen_bottom'] = 'beginfooter';
@@ -22,52 +25,12 @@ class Ssp_auto extends CI_Controller {
 		$this->load->view('index',$game);
 	}
 	
-	function insert_ssp()
-	{
-		if ($_POST)
-		{
-			$this->load->library ('Form_validation');
-			$f = $this->form_validation;
-			$f->set_rules('nilai', 'nilai', 'required|is_numeric');
-			if ($f->run())
-			{				
-				$rtn = array ('code' => 0);
-				$data = array(
-					'bulan' => @$this->input->post('bulan'),
-					'tahun' => @$this->input->post('tahun'),
-					'jenis_pajak' => @$this->input->post('jenis_pajak'),
-					'jenis_setoran' => @$this->input->post('jenis_setoran'),
-					'uraian' => @$this->input->post('uraian'),
-					'nilai' => @$this->input->post('nilai')
-					);
-				$this->app_model->updateData("tbl_login",$up,$id);														
-			}
-			else
-			{
-				$rtn = array ('code' => 1, 'message' => validation_errors('<li>', '</li>'));
-			}
-			
-			print json_encode ($rtn);
-			exit();		
-		}
-		
-		$game['judul'] = 'INPUT SSP';
-		$game['kodeakun'] = $this->app_model->manualQuery('SELECT kd_akun FROM tbl_jp')->result();
-		$game['kodejenis'] = $this->app_model->manualQuery('SELECT DISTINCT(kd_jenis) FROM tbl_jp')->result();
-		$game['belanja'] = $this->app_model->getAllData('tbl_belanja')->result();
-		$game['template'] = 'new_template';											#--- pilihan template. anda bisa pilih twocolumn / onecolumn
-		$game['komponen_top'] = array('navbar','forcelogin');						#--- Tambahkan html komponen di bagian paling atas halaman / sebelum template
-		$game['komponen_bottom'] = 'beginfooter';
-		$game['interface'] = array('form_ssp2');	
-		$this->load->view('index',$game);
-				
-	}
 	
 	function cekpajak()
 	{
 		$belanjaid = $this->input->post('belanjaid');
 		$nilai = $this->input->post('nilai');
-		$npwp = $this->input->post('npwp');
+		$npwp = $this->app_model->getSelectedData('tbl_pp',array('ppid'=>$this->input->post('npwp')))->row()->npwp;
 		
 		//BEGIN FUNGSI CEK PAJAK
 		if ($npwp == ""):
@@ -177,6 +140,7 @@ class Ssp_auto extends CI_Controller {
 		endif;
 	
 	}
+	
 	
 }
 ?>

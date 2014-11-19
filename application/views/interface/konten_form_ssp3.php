@@ -43,27 +43,14 @@
     echo form_open('ssp_post', $attributes); ?>
 	
 	<div class="form-group">
-		<label  class="col-md-3 control-label" for='password'>NPWP Wajib Pajak <span class="required">*</span></label>
+		<label  class="col-md-3 control-label" for='pemungut'>Pemungut Pajak <span class="required">*</span></label>
 		<div class="col-md-4">
-			<input class="form-control" id="npwp" type="text" name="npwp" maxlength="20" value="<?php echo set_value('npwp');echo $this->session->userdata('npwp_pilihan'); ?>" required /> 
-			<?php echo form_error('npwp'); ?>
-		</div>
-		<a href="<?=base_url()?>index.php/ssp_post/browse_npwp" onclick="javascript:void window.open('<?=base_url()?>index.php/ssp_post/browse_npwp','1415958925631','width=500,height=500,toolbar=0,menubar=0,location=0,status=0,scrollbars=1,resizable=1,left=0,top=0');return false;" class="btn btn-warning">Pilih Wajib Pajak</a>
-	</div>
-
-	<div class="form-group">
-		<label  class="col-md-3 control-label" for='password'>Nama Wajib Pajak <span class="required">*</span></label>
-		<div class="col-md-9">
-			<input class="form-control" id="nama_wp" type="text" name="nama_wp" maxlength="20" value="<?php echo set_value('nama_wp');echo $this->session->userdata('nama_pilihan'); ?>"/>
-			<?php echo form_error('nama_wp'); ?>
-		</div>
-    </div>
-    
-	<div class="form-group">
-		<label  class="col-md-3 control-label" for='alamat'>Alamat <span class="required">*</span></label>
-		<div class="col-md-9">
-			<?php echo form_textarea( array( 'class'=>'form-control', 'name' => 'alamat', 'rows' => '5', 'cols' => '80', 'value' => ((set_value('alamat')=='') ? $this->session->userdata('alamat_pilihan') : set_value('alamat') ), 'id' => 'alamat' ) )?>
-			<?php echo form_error('alamat'); ?>
+			<select name="pemungut" id="pemungut" class="form-control" required>
+				<option value="">--------</option>
+				<?php foreach($pemungut as $row): ?>
+				<option value="<?=$row->ppid?>"><?=$row->nama?> (<?=$row->npwp?>)</option>
+				<?php endforeach; ?>
+			</select>
 		</div>
     </div>
 	
@@ -88,7 +75,7 @@
     </div>
 
 	<div class="form-group">
-		<label  class="col-md-3 control-label" for='tahun'>Bulan <span class="required">*</span></label>
+		<label  class="col-md-3 control-label" for='bulan'>Bulan <span class="required">*</span></label>
 		<div class="col-md-2">
 			<input class="form-control" id="bulan" type="text" name="bulan" maxlength="4" value="<?php echo set_value('bulan'); ?>" data-provide="datepicker" data-date-autoclose="true" data-date="date(yyyy-mm-dd)" data-date-format="mm" data-date-min-view-mode="months" />
 			<?php echo form_error('tahun'); ?>
@@ -101,9 +88,9 @@
     </div>
 
 	<div class="form-group">
-		<label  class="col-md-3 control-label" for='tahun'>Tambahan uraian <span class="required"></span></label>
+		<label  class="col-md-3 control-label" for='uraian'>Tambahan uraian <span class="required"></span></label>
 		<div class="col-md-9">
-			<input class="form-control" id="uraian" type="text" name="uraian" maxlength="4" value="<?php echo set_value('uraian'); ?>"  />
+			<input class="form-control" id="uraian" type="text" name="uraian" value="<?php echo set_value('uraian'); ?>"  />
 			<?php echo form_error('uraian'); ?>
 		</div>
     </div>
@@ -137,7 +124,7 @@
 		$('#belanja').change(function(){
 			var belanjaid = $('#belanja option:selected').val();
 			var nilai = $('#nilaitransaksi').val();
-			var npwp = $('#npwp').val();
+			var npwp = $('#pemungut').val();
 			// alert(belanjaid);
 			$.ajax({
 				type: "POST",
