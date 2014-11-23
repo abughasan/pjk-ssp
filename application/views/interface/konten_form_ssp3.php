@@ -46,7 +46,6 @@
 		<label  class="col-md-3 control-label" for='pemungut'>Pemungut Pajak <span class="required">*</span></label>
 		<div class="col-md-4">
 			<select name="pemungut" id="pemungut" class="form-control" required>
-				<option value="">--------</option>
 				<?php foreach($pemungut as $row): ?>
 				<option value="<?=$row->ppid?>"><?=$row->nama?> (<?=$row->npwp?>)</option>
 				<?php endforeach; ?>
@@ -81,6 +80,19 @@
     </div>
 	
 	<div class="form-group formhilang">
+		<label class="col-md-3 control-label" for='bulan'>Bulan <span class="required">*</span></label>
+		<div class="col-md-2">
+			<input class="form-control" id="bulan" type="text" name="bulan" maxlength="4" value="<?php echo set_value('bulan'); ?>" data-provide="datepicker" data-date-autoclose="true" data-date="date(yyyy-mm-dd)" data-date-format="mm" data-date-min-view-mode="months" />
+			<?php echo form_error('tahun'); ?>
+		</div>
+		<label  class="col-md-1 control-label" for='tahun'>Tahun <span class="required">*</span></label>
+		<div class="col-md-2">
+			<input class="form-control" id="tahun" type="text" name="tahun" maxlength="4" value="<?php echo set_value('tahun'); ?>" data-provide="datepicker" data-date-autoclose="true" data-date="date(yyyy-mm-dd)" data-date-format="yyyy" data-date-min-view-mode="years" />
+			<?php echo form_error('tahun'); ?>
+		</div>
+    </div>
+	
+	<div class="form-group formhilang">
 		<label  class="col-md-3 control-label" for='nilai'>Nilai Belanja <span class="required">*</span></label>
 		<div class="col-md-9">
 			<input class="form-control" id="nilaitransaksi" type="text" name="nilai" value="<?php echo set_value('nilai'); ?>" required/>
@@ -99,35 +111,23 @@
 			</select>
 		</div>
     </div>
-	
-	<div class="form-group formhilang">
-		<label  class="col-md-3 control-label" for='uraian'>Keterangan <span class="required"></span></label>
-		<div class="col-md-9">
-			<input class="form-control" id="uraian" type="text" name="uraian" value="<?php echo set_value('uraian'); ?>"  />
-			<?php echo form_error('uraian'); ?>
-		</div>
-    </div>
 
-	<div class="form-group formhilang">
-		<label class="col-md-3 control-label" for='bulan'>Bulan <span class="required">*</span></label>
-		<div class="col-md-2">
-			<input class="form-control" id="bulan" type="text" name="bulan" maxlength="4" value="<?php echo set_value('bulan'); ?>" data-provide="datepicker" data-date-autoclose="true" data-date="date(yyyy-mm-dd)" data-date-format="mm" data-date-min-view-mode="months" />
-			<?php echo form_error('tahun'); ?>
-		</div>
-		<label  class="col-md-1 control-label" for='tahun'>Tahun <span class="required">*</span></label>
-		<div class="col-md-2">
-			<input class="form-control" id="tahun" type="text" name="tahun" maxlength="4" value="<?php echo set_value('tahun'); ?>" data-provide="datepicker" data-date-autoclose="true" data-date="date(yyyy-mm-dd)" data-date-format="yyyy" data-date-min-view-mode="years" />
-			<?php echo form_error('tahun'); ?>
-		</div>
-    </div>
-
-
-    <div class="form-group">
+    <div class="form-group formhilang">
 	<label  class="col-md-3 control-label" for='kenapajak'>Kena Pajak <span class="required"></span></label>
 		<div class="col-md-9">
 			<div class='controls' id="keterangan_pajak"></div>
 		</div>	
     </div>
+	
+	<div class="form-group" id="pesanberhasil" style="display:none">
+		<div class="col-xs-3"></div>
+		<div class="col-xs-9">
+			<div class="alert alert-success alert-dismissable">
+			  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+			  <strong>Berhasil.!</strong> Data telah tersimpan dalam database. Tunggu sebentar anda akan diarahkan ke halaman laporan SSP
+			</div>
+		</div>
+	</div>
 	
     </fieldset>
 
@@ -153,6 +153,7 @@
 			var npwp = $('#npwp').val();
 			var nama = $('#nama_wp').val();
 			var alamat = $('#alamat').val();
+			if (npwp!='' && nama!='') {
 			$.ajax({
 				type: "POST",
 				url: "<?=base_url()?>index.php/ssp_auto/cek_wp",
@@ -171,6 +172,7 @@
 					// alert('lama');
 				}
 			});
+			}
 		});
 		$('#belanja').change(function(){
 			var belanjaid = $('#belanja option:selected').val();
@@ -196,8 +198,6 @@
 			var ppn = $('#ppn').val();
 			var pph = $('#pph').val();
 			var npwp = $('#npwp').val();
-			// alert(ppn);
-			// alert(pph);
 			$.ajax({
 				type: "POST",
 				url: "<?=base_url()?>index.php/ssp_auto/post",
@@ -215,25 +215,9 @@
 			})
 			.done(function( msg ) {
 					$('.formhilang').hide('slow');
+					$('#pesanberhasil').show('slow');
+					setTimeout(function(){ window.location = '<?=base_url()?>laporan_ssp'; }, 3000);
 			});
 			return false;
 		});
 	</script>
-	
-<div class="modal fade" id="modalppn" tabindex="-1" role="dialog" aria-labelledby="modalppn" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title" id="myModalLabel">Cetak SSP [Melengkapi data...]</h4>
-      </div>
-      <div class="modal-body">
-        
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div>

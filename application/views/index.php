@@ -6,7 +6,7 @@
 	<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
 	<meta content="utf-8" http-equiv="encoding">
     <!-- Plugin css -->
-    <link href="<?php echo $this->config->item('bootstrap_path'); ?>less/bootstrap.less" rel="stylesheet/less">
+    <link href="<?php echo $this->config->item('bootstrap_path'); ?>dist/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
     <link href="<?php echo $this->config->item('jqgrid_path'); ?>css/ui.jqgrid.css" rel="stylesheet" media="screen">
     <link href="<?php echo $this->config->item('jqgrid_path'); ?>css/excite-bike/jquery.ui.theme.css" rel="stylesheet" media="screen">
     <link href="<?php echo $this->config->item('datepicker_path'); ?>css/datepicker3.css" rel="stylesheet" media="screen">	
@@ -26,7 +26,6 @@
       <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
     <![endif]-->
     <script src="<?php echo $this->config->item('jquery'); ?>"></script>
-    <script src="<?php echo $this->config->item('less'); ?>"></script>    
     <script src="<?php echo $this->config->item('chosen'); ?>"></script>	
 	
 	<!-- jQuery (jQuery plugins) -->

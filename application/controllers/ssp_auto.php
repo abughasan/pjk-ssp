@@ -30,7 +30,6 @@ class Ssp_auto extends CI_Controller {
 		$data['ppid'] = $this->input->post('pp');
 		$data['nilai_belanja'] = $this->input->post('nilai');
 		$data['belanjaid'] = $this->input->post('belanja');
-		$data['uraian'] = $this->input->post('uraian');
 		$data['masa_p'] = $this->input->post('bulan');
 		$data['tahun_p'] = $this->input->post('tahun');
 		$data['tgl_otomatis'] = date('Y-m-d');
